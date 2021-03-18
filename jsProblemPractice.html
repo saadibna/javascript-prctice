@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Print Content Of Current Window</title>
+  </head>
+  <body>
+    <div class="container-fluid bg-light">
+        <h2 align="center">How Window.print() Method Work</h2>
+        <div class="row">
+          <div class="col-sm">
+            <h3>window.print()</h3>
+          </div>
+          <div class="col-6">
+            <p>This Method prints the contents of the current window.The print() 
+                method opens the Print Dialog Box, which lets the 
+                user to select preferred printing options.</p>
+          </div>
+          <div class="col-sm">
+            <p>Click the button to print the current page.</p>
+            <button type="button" class="btn btn-outline-success" onclick="printContentCurrentWindow()">Click to Print this page</button>
+          </div>
+        </div>
+      </div>
+      <!-- date differnt format/ custom date -->
+      <div class="container-fluid">
+        <h2 align="center">JavaScript toLocaleDateString() Method</h2>
+        <div class="row">
+          <div class="col-sm">
+            <h3>toLocaleDateString()</h3>
+          </div>
+          <div class="col-6">
+            <p>The toLocaleDateString() method converts the date (not the time) 
+                of a Date object into a readable string, using locale conventions.</p>
+          </div>
+          <div class="col-sm">
+            <p id="demo"></p>
+          </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-light">
+      <h2 align="center">JavaScript date Method</h2>
+      <div class="row">
+        <div class="col-sm">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h3>getDate()</h3></li>
+            <li class="list-group-item"><h3>getMonth()</h3></li>
+            <li class="list-group-item"><h3>getFullYear()</h3></li>
+          </ul>
+        </div>
+        <div class="col-6">
+         <ul class="list-group list-group-flush">
+           <li class="list-group-item"><p>The getDate() method returns the day of the month (from 1-31) for the specified date.</p></li>
+           <li class="list-group-item"><p>The getFullYear() method returns the year of the specified date.</p></li>
+           <li class="list-group-item"><p>The getMonth() method returns the month (from 0 to 11) for the specified date, according to local time.</p></li>
+         </ul>
+        </div>
+        <div class="col-sm">
+          <ul class="list-unstyled">
+            <li><p id="d1"></p></li>
+            <li><p id="d2"></p></li>
+            <li><p id="d3"></p></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+
+      <script>
+        function printContentCurrentWindow() {
+           window.print();
+        }
+        function dateFormat() {
+        var d = new Date();
+        var d1= d.toLocaleDateString();
+        return d1;
+        }
+        document.getElementById("demo").innerHTML = "Date: "+ dateFormat();
+
+        var d = new Date();
+        var month=d.getMonth()+1;
+        var customFormat= month + "-"+d.getDate()+"-"+d.getFullYear();
+        var customFormat2= d.getDate()+ "-"+ month +"-"+d.getFullYear();
+        var customFormat3= d.getDate()+ "/"+ month +"/"+d.getFullYear();
+        
+        document.getElementById("d1").innerHTML = "MM-DD-YYYY Format Date: "+ customFormat;
+        document.getElementById("d2").innerHTML = "DD-MM-YYYY Format Date: "+ customFormat2;
+        document.getElementById("d3").innerHTML = "DD/MM/YYYY Format Date: "+ customFormat3;
+     </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
